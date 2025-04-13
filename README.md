@@ -23,4 +23,9 @@
 
 # 6. 기술 스택
 
+<div style="display:flex; flex-direction:row;">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white" />
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=LangChain&logoColor=white" />
+</div><br>
+
 # 7. 아키텍쳐

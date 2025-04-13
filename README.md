@@ -15,6 +15,9 @@
 
 ```plaintext
 pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
+```
+
+```plaintext
 ollama pull mxbai-embed-large
 ```
 # 4. 폴더 구조

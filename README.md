@@ -19,6 +19,20 @@
 
 # 4. 폴더 구조
 
+```plaintext
+project/
+├── practice_code/
+│   ├── pdf_extraction.py    # pdf를 챗봇이 요구사항에 맞게 요약후 csv 파일로 저장 (원민)
+│   └── favicon.ico          # 각자 칭구들꺼~~
+│   └── favicon.ico          # 각자 칭구들꺼~~
+│   └── favicon.ico          # 각자 칭구들꺼~~
+├── 주간발표연습/
+│   ├── 1주차/               # 1주차 발표 ppt
+│   ├── 2주차/               # 2주차 발표 ppt
+├── 주간보고일지/             # 주간보고일지 파일들
+└── README.md                # 프로젝트 개요 및 사용법
+```
+
 # 5. 주요 기능
 
 # 6. 기술 스택 및 개발 환경

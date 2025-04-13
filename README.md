@@ -13,9 +13,13 @@
 
 # 3. 실행 가이드
 
+- 실행 환경 세팅
+
 ```plaintext
 pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
 ```
+
+- 임베딩 모델 설정
 
 ```plaintext
 ollama pull mxbai-embed-large

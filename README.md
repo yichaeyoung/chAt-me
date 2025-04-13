@@ -13,10 +13,10 @@
 
 # 3. 실행 가이드
 
-- pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
-
-- ollama pull mxbai-embed-large
-
+```plaintext
+pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
+ollama pull mxbai-embed-large
+```
 # 4. 폴더 구조
 
 ```plaintext

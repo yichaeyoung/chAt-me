@@ -38,6 +38,12 @@ project/
 
 # 5. 주요 기능
 
+## 5.1 GEN-AI Foundation
+
+## 5.2 GEN-AI Agent
+
+## 5.3 GEN-AI Meta
+
 # 6. 기술 스택 및 개발 환경
 
 <div style="display:flex; flex-direction:row;">

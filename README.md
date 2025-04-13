@@ -1,8 +1,8 @@
 # chAt&me
 
-- 프로젝트 개요 (개발 목적, 개발 기간, 개발 환경 등)
+# 1. 프로젝트 개요 (개발 목적, 개발 기간, 개발 환경 등)
 
-- # Team Members (팀원 및 팀 소개)
+# 2. Team Members (팀원 및 팀 소개)
   
 | 이채영 | 김나영 | 박수빈 | 원민 |
 |:------:|:------:|:------:|:------:|
@@ -11,16 +11,16 @@
 | [GitHub](https://github.com/yichaeyoung) | [GitHub](https://github.com/knyjs0710) | [GitHub](https://github.com/ps9b) | [GitHub](https://github.com/wonmin9211) |
 
 
-- 실행 가이드
+# 3. 실행 가이드
 
-pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
+- pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
 
-ollama pull mxbai-embed-large
+- ollama pull mxbai-embed-large
 
-- 폴더 구조
+# 4. 폴더 구조
 
-- 주요 기능
+# 5. 주요 기능
 
-- 기술 스택
+# 6. 기술 스택
 
-- 아키텍쳐
+# 7. 아키텍쳐

@@ -1,6 +1,6 @@
 # chAt&me
 
-# 1. 프로젝트 개요 (개발 목적, 개발 기간, 개발 환경 등)
+# 1. 프로젝트 개요 (개발 목적, 개발 기간 등)
 
 # 2. Team Members (팀원 및 팀 소개)
   
@@ -21,7 +21,7 @@
 
 # 5. 주요 기능
 
-# 6. 기술 스택
+# 6. 기술 스택 및 개발 환경
 
 <div style="display:flex; flex-direction:row;">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white" />

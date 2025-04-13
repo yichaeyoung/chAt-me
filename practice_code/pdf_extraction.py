@@ -1,8 +1,9 @@
 import gradio as gr
+import pandas as pd
 from langchain.docstore.document import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddings
+from langchain_ollama import OllamaEmbeddings
 import ollama
 import pdfplumber
 import pytesseract
@@ -64,7 +65,15 @@ def rag_chain(file, question):
                                {"role": "user",
                                 "content": formatted_prompt}
                            ])
+    
+    summary = response['message']['content']
+    save_to_csv(summary)  # 요약 텍스트를 CSV로 저장
     return response['message']['content']
+
+# 요약 텍스트를 CSV 파일에 저장하는 함수
+def save_to_csv(summary):
+    df = pd.DataFrame({"Summary": [summary]})
+    df.to_csv("summary.csv", index=False)
 
 # Gradio interface
 iface = gr.Interface(

@@ -3,7 +3,6 @@
 - 프로젝트 개요 (개발 목적, 개발 기간, 개발 환경 등)
 
 - # Team Members (팀원 및 팀 소개)
-
   
 | 이채영 | 김나영 | 박수빈 | 원민 |
 |:------:|:------:|:------:|:------:|
@@ -14,6 +13,10 @@
 
 - 실행 가이드
 
+pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
+
+ollama pull mxbai-embed-large
+
 - 폴더 구조
 
 - 주요 기능
@@ -21,5 +24,3 @@
 - 기술 스택
 
 - 아키텍쳐
-
-- 팀 소개 및 역

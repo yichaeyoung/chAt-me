@@ -34,7 +34,7 @@ project/
 ├── practice_code/
 │   ├── pdf_extraction.py    # pdf를 챗봇이 요구사항에 맞게 요약후 csv 파일로 저장 (원민)
 │   ├── english_tutor.py     # ollama와 langchain을 이용한 영어 단어장 (박수빈)
-│   ├── favicon.ico          # 각자 칭구들꺼~~
+│   ├── csv_ollama.py        # ollama에게 csv 파일을 학습시키는 연습 코드 (박수빈)
 │   └── favicon.ico          # 각자 칭구들꺼~~
 ├── 주간발표연습/
 │   ├── 1주차/               # 1주차 발표 ppt

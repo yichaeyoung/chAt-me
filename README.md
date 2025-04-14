@@ -33,7 +33,7 @@ ollama pull mxbai-embed-large
 project/
 ├── practice_code/
 │   ├── pdf_extraction.py    # pdf를 챗봇이 요구사항에 맞게 요약후 csv 파일로 저장 (원민)
-│   ├── favicon.ico          # 각자 칭구들꺼~~
+│   ├── english_tutor.py     # ollama와 langchain을 이용한 영어 단어장 (박수빈)
 │   ├── favicon.ico          # 각자 칭구들꺼~~
 │   └── favicon.ico          # 각자 칭구들꺼~~
 ├── 주간발표연습/

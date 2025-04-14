@@ -45,7 +45,7 @@ def analyze_csv(df):
 def plot_histogram(df, column):
     plt.figure(figsize=(10, 6))
     df[column].hist()
-    plt.title(f'{column} 히스토그램')
+    plt.title(f'{column} histogram')
     plt.xlabel(column)
     plt.ylabel('빈도')
     plt.show()
@@ -89,7 +89,7 @@ def continue_chat_with_llama(file_path, df, analysis_result):
             print("대화를 종료합니다.")
             break
         
-        if user_input.startswith("히스토그램:"):
+        if user_input.startswith("histogram:"):
             column = user_input.split(":")[1].strip()
             if column in df.columns:
                 plot_histogram(df, column)

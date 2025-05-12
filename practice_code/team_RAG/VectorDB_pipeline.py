@@ -2,6 +2,7 @@ from langchain.document_loaders import PyMuPDFLoader
 from langchain.document_loaders import CSVLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter 
 from langchain.vectorstores import FAISS
+from langchain_ollama import OllamaEmbeddings
 
 # PDF 파일 로드
 pdf_path = "2025년 사이버 위협 전망 보고서.pdf"
@@ -20,20 +21,21 @@ print(documents[0].page_content)
 
 # 텍스트 청크 분할
 text_splitter = RecursiveCharacterTextSplitter(
-chunk_size=500,
-chunk_overlap=100,
-separators=["\n\n", "\n",". "]
+    chunk_size=500,
+    chunk_overlap=100,
+    separators=["\n\n", "\n",". "]
 )
 split_docs = text_splitter.split_documents(documents_pdf)
 
 # 벡터 DB 저장
-vectorstore = FAISS.from_documents(split_docs, embedding_model)
+embeddings = OllamaEmbeddings(model="mxbai-embed-large")
+vectorstore = FAISS.from_documents(split_docs, embeddings)
 vectorstore.save_local("faiss_index")
 
 # 저장한 FAISS DB 불러오기기
 new_vectorstore = FAISS.load_local(
     "faiss_index",
-    embedding_model,
+    embeddings,
     allow_dangerous_deserialization=True
 )
 
@@ -71,3 +73,4 @@ for doc, score in retrieved_docs:
     print('유사도 점수 :', score)
     print('문서 내용 :', doc.page_content)
     print('-'*200)
+    

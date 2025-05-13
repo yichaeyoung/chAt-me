@@ -115,11 +115,11 @@ def run_tag_pipeline(message, retriever):
     formatted_table = format_docs(relevant_docs)
     prompt = f"""다음 테이블 데이터를 참고하여 질문에 답변하세요.
 
-질문: {message}
+    질문: {message}
 
-테이블:
-{formatted_table}
-"""
+    테이블:
+    {formatted_table}
+    """
     response = ollama.chat(
         model="llama3.2",
         messages=[

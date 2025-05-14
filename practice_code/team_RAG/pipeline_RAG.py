@@ -19,24 +19,36 @@ retriever_cache = {}
 
 # 파일 해시 생성 함수
 def get_file_hash(file):
-    file_path = file.name if hasattr(file, "name") else file
-    with open(file_path, "rb") as f:
-        return hashlib.md5(f.read()).hexdigest()
+    ''' 파일 해시 생성 함수 - 파일이 존재하지 않으면 None 반환 '''
+    try:
+        file_path = file.name if hasattr(file, "name") else file
+        with open(file_path, "rb") as f:
+            return hashlib.md5(f.read()).hexdigest()
+    except FileNotFoundError:
+        print("[ERROR] 파일이 존재하지 않습니다.")
+        return None
+    except Exception as e:
+        print(f"[ERROR] 파일 해시 생성 중 오류 발생: {e}")
+        return None
 
 ''' 
-PDF에서 텍스트 추출 (PyMuPDFLoader + OCR 결합)
+PDF에서 텍스트 추출 (PyMuPDFLoader + OCR 결합) - 예외 처리 추가가
 pdfplumber보다 PyMuPDFLoader가 더 빠르고 안정적인 pdf 파싱이 가능
 PyMuPDFLoader를 우선 사용후 텍스트가 없는 페이지에만 pytesseract로 OCR 적용하도록 최적화
 '''
 def extract_text_from_pdf(file_path):
-    loader = PyMuPDFLoader(file_path)
-    docs = loader.load()
-    if not docs:
-        with pdfplumber.open(file_path) as pdf:
-            for page in pdf.pages:
-                text = page.extract_text() or pytesseract.image_to_string(page.to_image())
-                docs.append(Document(page_content=text))
-    return docs
+    try:
+        loader = PyMuPDFLoader(file_path)
+        docs = loader.load()
+        if not docs:
+            with pdfplumber.open(file_path) as pdf:
+                for page in pdf.pages:
+                    text = page.extract_text() or pytesseract.image_to_string(page.to_image())
+                    docs.append(Document(page_content=text))
+        return docs
+    except Exception as e:
+        print(f"[ERROR] PDF 텍스트 추출 중 오류 발생: {e}")
+        return []
 
 ''' 
 텍스트 분할 함수

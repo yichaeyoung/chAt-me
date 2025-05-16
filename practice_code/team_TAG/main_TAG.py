@@ -7,9 +7,9 @@ from langchain_ollama import OllamaEmbeddings
 import ollama
 import pdfplumber
 import pytesseract
-from PIL import Image
+#from PIL import Image # 이미지 처리 라이브러리
 import hashlib
-import os
+import os  # 수정 가능해보임
 
 # 캐시 저장소
 retriever_cache = {}
@@ -101,7 +101,8 @@ def format_docs(docs):
 # 질의 유형 분류
 def classify_query_type(message):
     response = ollama.chat(
-        model="llama3.2",
+        # model="llama3.2", 한국어버전 쓰기위해 수정
+        model="benedict/linkbricks-llama3.1-korean:8b",
         messages=[
             {"role": "system", "content": "다음 사용자의 질문이 어떤 유형인지 판별하세요. 선택지는: Text2SQL, RAG, TAG. 유형만 한 단어로 답변하세요."},
             {"role": "user", "content": message}
@@ -121,7 +122,8 @@ def run_tag_pipeline(message, retriever):
     {formatted_table}
     """
     response = ollama.chat(
-        model="llama3.2",
+        # model="llama3.2",
+        model="benedict/linkbricks-llama3.1-korean:8b",
         messages=[
             {"role": "system", "content": "당신은 테이블 기반 정보를 바탕으로 추론하는 LLM입니다."},
             {"role": "user", "content": prompt}
@@ -135,7 +137,8 @@ def run_rag_pipeline(message, retriever):
     formatted_context = format_docs(retrieved_docs)
     formatted_prompt = f"Question: {message}\n\nContext: {formatted_context}"
     response = ollama.chat(
-        model='llama3.2',
+        # model="llama3.2",
+        model="benedict/linkbricks-llama3.1-korean:8b",
         messages=[
             {"role": "system", "content": "PDF 또는 문서 내용을 참고하여 질문에 답하세요."},
             {"role": "user", "content": formatted_prompt}

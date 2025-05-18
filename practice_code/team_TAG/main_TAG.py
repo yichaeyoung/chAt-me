@@ -7,9 +7,8 @@ from langchain_ollama import OllamaEmbeddings
 import ollama
 import pdfplumber
 import pytesseract
-#from PIL import Image # 이미지 처리 라이브러리
 import hashlib
-import os  # 수정 가능해보임
+import os
 
 # 캐시 저장소
 retriever_cache = {}

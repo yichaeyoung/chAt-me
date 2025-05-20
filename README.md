@@ -27,6 +27,13 @@ pip install ollama chromadb langchain langchain-community tornado gradio pandas 
 ```plaintext
 ollama pull mxbai-embed-large
 ```
+
+- conda 활성화
+
+```plaintext
+conda env list
+conda activate chAt_me
+```
 # 4. 폴더 구조
 
 ```plaintext

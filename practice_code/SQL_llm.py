@@ -181,7 +181,7 @@ def convert_to_sql(query):
     
     # 전체 기업 수
     if ('전체' in query or '총' in query or '모든' in query) and ('몇' in query or '개수' in query):
-        return "SELECT COUNT(*) as 총기업수 FROM companies"
+        return "SELECT COUNT(*) as 기업명 FROM companies"
     
     return None
 

@@ -347,7 +347,7 @@ class Generator:
         
         try:
             response = ollama.chat(
-                model='gemma:7b-instruct',
+                model='benedict/linkbricks-llama3.1-korean:8b ',
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": prompt}

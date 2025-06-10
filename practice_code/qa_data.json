@@ -1,0 +1,418 @@
+[
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "서울에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "서울에 위치한 기업의 수는 총 838개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "부산에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "부산에 위치한 기업의 수는 총 56개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "시각지능 분야 기업이 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "시각지능 분야 기업은 685개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "경남에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "경남에 위치한 기업의 수는 총 32개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "광주에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "광주에 위치한 기업의 수는 총 47개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "경북 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "경북에 위치한 기업의 수는 총 27개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "경상도 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "경상도에 위치한 기업의 수는 총 59개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "인천 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "인천에 위치한 기업의 수는 총 41개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "제주 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "제주에 위치한 기업의 수는 총 11개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "강원도 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "강원도에 위치한 기업의 수는 총 27개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "대전 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "대전에 위치한 기업의 수는 총 98개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "경기에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "경기에 위치한 기업의 수는 총 298개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "충남에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "충남에 위치한 기업의 수는 총 17개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "충북에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "충북에 위치한 기업의 수는 총 15개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "충청도에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "충청도에 위치한 기업의 수는 총 32개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "대구에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "대구에 위치한 기업의 수는 총 59개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "전라도에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "전라도에 위치한 기업의 수는 총 28개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "전남에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "전남에 위치한 기업의 수는 총 11개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "전북 기업 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "전북에 위치한 기업의 수는 총 17개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "울산에 위치한 기업의 수는 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "울산에 위치한 기업의 수는 총 25개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "울산에 있는 기업이 몇개인지 알려줘."
+      },
+      {
+        "role": "assistant",
+        "content": "울산에 위치한 기업의 수는 총 25개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "경기 기업 개수?"
+      },
+      {
+        "role": "assistant",
+        "content": "경기에 위치한 기업의 수는 총 298개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "시각지능 분야 기업이 몇개야?"
+      },
+      {
+        "role": "assistant",
+        "content": "시각지능 분야 기업은 685개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "분석지능 분야 기업 몇개?"
+      },
+      {
+        "role": "assistant",
+        "content": "분석지능 분야 기업은 852개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "행동지능 및 기타 분야 기업 몇개?"
+      },
+      {
+        "role": "assistant",
+        "content": "행동지능 및 기타 분야 기업은 129개입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 AI 기업 정보를 기반으로 분석해주는 지식 비서입니다."
+      },
+      {
+        "role": "user",
+        "content": "언어,음성지능 분야 기업 몇개?"
+      },
+      {
+        "role": "assistant",
+        "content": "언어,음성지능 분야 기업은 425개입니다."
+      }
+    ]
+  }
+]

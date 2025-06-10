@@ -19,7 +19,7 @@
 - 실행 환경 세팅
 
 ```plaintext
-pip install ollama chromadb langchain langchain-community tornado gradio pandas pdfplumber pytesseract pillow
+pip install -r requirements.txt
 ```
 
 - 임베딩 모델 설정

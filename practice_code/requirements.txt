@@ -1,0 +1,11 @@
+gradio
+pandas
+numpy
+pdfplumber
+pytesseract
+Pillow
+camelot-py[cv]
+langchain
+langchain-community
+langchain-ollama
+ollama

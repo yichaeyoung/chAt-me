@@ -12,12 +12,12 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_ollama import OllamaEmbeddings
-from langchain.document_loaders import PyMuPDFLoader
 from sentence_transformers import SentenceTransformer
 from langchain.embeddings.base import Embeddings
+from langchain_community.document_loaders import PyMuPDFLoader
 import camelot
 import ollama
-
+ 
 # Cache for retrievers
 retriever_cache = {}
 
@@ -25,7 +25,6 @@ model = SentenceTransformer("snunlp/KR-SBERT-Medium-extended-patent2024-hn")
 
 class SBERTEmbeddings(Embeddings):
     def __init__(self, model_name="snunlp/KR-SBERT-Medium-extended-patent2024-hn"):
-        from sentence_transformers import SentenceTransformer
         self.model = SentenceTransformer(model_name)
 
     def embed_documents(self, texts):
@@ -155,35 +154,44 @@ class Generator:
 class RAGPipeline:
     def __init__(self, generator):
         self.generator = generator
+        self.vectorstore = Chroma(
+            persist_directory="../dataset", 
+            embedding_function=embeddings
+        )
 
     def __call__(self, query, file):
         query = query.strip()
         if not query:
-            return "❗ 질문이 비어 있습니다."
+            return " 질문이 비어 있습니다."
+        if file is None:
+            return " PDF 파일이 첨부되지 않았습니다."    
 
-        file_hash = get_file_hash(file)
-        docs = extract_text_from_pdf(file.name)
+        # file_path = file.name if hasattr(file, "name") else file
+        # file_hash = get_file_hash(file)
+        # docs = extract_text_from_pdf(file_path)
 
-        if file_hash in retriever_cache:
-            print("📦 캐시된 retriever 사용 중...")
-            vectorstore = retriever_cache[file_hash]
-        else:
-            split_docs = split_text(docs)
-            vectorstore = Chroma.from_documents(split_docs, embeddings)
-            retriever_cache[file_hash] = vectorstore
+        # if file_hash in retriever_cache:
+        #     print("📦 캐시된 retriever 사용 중...")
+        #     vectorstore = retriever_cache[file_hash]
+        # else:
+        #     split_docs = load_documents_from_local()
+        #     vectorstore = Chroma.from_documents(split_docs, embeddings)
+        #     retriever_cache[file_hash] = vectorstore
 
-        retrieved_docs = vectorstore.max_marginal_relevance_search(query, k=7, fetch_k=20)
-        for i, doc in enumerate(retrieved_docs):
-            print(f"[TOP {i+1}] {doc.page_content}")
+        # # retrieved_docs = vectorstore.max_marginal_relevance_search(query, k=7, fetch_k=20)
+        
+        try:
+            retrieved_docs = self.vectorstore.max_marginal_relevance_search(query, k=7, fetch_k=20)
+        except Exception as e:
+            return f"[EMBEDDING ERROR] 쿼리 임베딩 실패: {e}"
+
+        # for i, doc in enumerate(retrieved_docs):
+        #     print(f"[TOP {i+1}] {doc.page_content}")
+        
         if is_count_question(query):
             table_docs = [doc for doc in retrieved_docs if "[테이블" in doc.page_content]
             other_docs = [doc for doc in retrieved_docs if "[테이블" not in doc.page_content]
             retrieved_docs = table_docs + other_docs
-
-        try:
-            retrieved_docs = vectorstore.max_marginal_relevance_search(query, k=7, fetch_k=20)
-        except Exception as e:
-            return f"[EMBEDDING ERROR] 쿼리 임베딩 실패: {e}"
 
         context = format_context(retrieved_docs)
         return str(self.generator(query, context))
@@ -192,11 +200,28 @@ class RAGPipeline:
 generator = Generator()
 rag_pipeline = RAGPipeline(generator)
 
+def chat_fn(message, history, file):
+    if file is None:
+        return "PDF 파일이 첨부되지 않았습니다."
+    return str(rag_pipeline(message, file))
+
 chatbot = gr.ChatInterface(
-    fn=lambda msg, hist, file: str(rag_pipeline(msg, file)),
+    fn=chat_fn,
+    additional_inputs=[gr.File(label="📄 PDF 파일", file_types=[".pdf"])],
     title="[LLM] PDF Table RAG+TAG 통합 시스템",
     description="PDF 파일을 업로드하고 질문하세요. 표 및 텍스트 데이터 기반으로 답변합니다.",
-    additional_inputs=[gr.File(label="📄 PDF 파일", file_types=[".pdf"])]
 )
+
+
+def load_documents_from_local(path="../dataset"):
+    all_docs = []
+    for fname in os.listdir(path):
+        if fname.endswith(".pdf"):
+            loader = PyMuPDFLoader(os.path.join(path, fname))
+            docs = loader.load()
+            splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+            split_docs = splitter.split_documents(docs)
+            all_docs.extend(split_docs)
+    return all_docs
 
 chatbot.launch()

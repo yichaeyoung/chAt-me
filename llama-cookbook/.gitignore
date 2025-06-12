@@ -4,3 +4,5 @@ __pycache__
 wandb/
 artifacts/
 node_modules/
+echo "llama-cookbook/getting-started/finetuning/datasets/train.jsonl" >> .gitignore
+

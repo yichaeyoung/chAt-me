@@ -1,0 +1,6 @@
+flask
+flask-cors
+asyncio
+werkzeug
+vllm
+transformers

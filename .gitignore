@@ -1,3 +1,4 @@
 dataset/
 practice_code/auto_extracted_table.csvllama-cookbook/getting-started/finetuning/datasets/train.jsonl
 llama-cookbook/getting-started/finetuning/datasets/train.jsonl
+auto_extracted_table.csv

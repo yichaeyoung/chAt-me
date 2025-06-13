@@ -16,7 +16,7 @@ def query_ollama(prompt):
     return response.json()["response"]
 
 def run_benchmark():
-    with open("eval_set.jsonl", "r", encoding="utf-8") as f:
+    with open("test_convert.jsonl", "r", encoding="utf-8") as f:
         eval_data = [json.loads(line) for line in f]
 
     total = len(eval_data)

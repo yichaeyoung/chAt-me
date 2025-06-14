@@ -1,19 +1,11 @@
 import json
 import time
-import requests
+from TAG_RAG import RAGPipeline, Generator # import 해올 python 파일, 함수
 
-OLLAMA_MODEL = "llama3"
-OLLAMA_URL = "http://localhost:11434/api/generate"
+PDF_FILE_PATH = "2025_AI.pdf" # pdf 이름
 
-def query_ollama(prompt):
-    payload = {
-        "model": OLLAMA_MODEL,
-        "prompt": prompt,
-        "stream": False
-    }
-    response = requests.post(OLLAMA_URL, json=payload)
-    response.raise_for_status()
-    return response.json()["response"]
+generator = Generator()
+rag_pipeline = RAGPipeline(generator)
 
 def run_benchmark():
     with open("test_convert.jsonl", "r", encoding="utf-8") as f:
@@ -23,12 +15,14 @@ def run_benchmark():
     correct = 0
     total_latency = 0
 
+    dummy_file = type("File", (object,), {"name": PDF_FILE_PATH})()
+
     for item in eval_data:
         q = item["question"]
         expected = item["answer"].strip()
 
         start = time.time()
-        output = query_ollama(q)
+        output = rag_pipeline(q, dummy_file)
         latency = time.time() - start
         total_latency += latency
 

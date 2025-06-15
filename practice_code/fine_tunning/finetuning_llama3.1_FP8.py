@@ -1,23 +1,33 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
 import torch
 from datasets import load_dataset
 from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, Trainer, DataCollatorForLanguageModeling
 from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_training
 from transformers import BitsAndBytesConfig
 from huggingface_hub import login
+from accelerate import Accelerator
 import os
-
-# 💡 환경변수 설정
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 os.environ["TORCH_DISTRIBUTED_DEFAULT_DTENSOR"] = "0"
 os.environ["PT_DTORCH_ENABLE_DTENSOR"] = "0"
 
-# ✅ Access Token 로그인
-login(token="my_token")  # 자신의 토큰 입력
+accelerator = Accelerator()
+
+
+login(token="hf_my_token")  # 자신의 Access Token 입력
+#device_id = torch.cuda.current_device()
 
 # ✅ 설정
 BASE_MODEL = "Saxo/Linkbricks-Horizon-AI-Korean-llama-3.1-sft-dpo-8B"
 OUTPUT_DIR = "./outputs"
 DATA_PATH = "./train.jsonl"
+
+
+from accelerate import Accelerator
+import os
+
+# 💡 메모리 단편화 방지 환경변수 설정
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 # ✅ 8bit 양자화 설정
 bnb_config = BitsAndBytesConfig(
@@ -31,17 +41,17 @@ print("📦 모델 불러오는 중...")
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL, trust_remote_code=True)
 tokenizer.pad_token = tokenizer.eos_token
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+accelerator = Accelerator()
 
 model = AutoModelForCausalLM.from_pretrained(
     BASE_MODEL,
     quantization_config=bnb_config,
-    device_map="auto",  # 하나의 GPU만 사용
+    device_map={"": accelerator.process_index},  # accelerator 로 객체 생성 후 사용
     trust_remote_code=True,
     low_cpu_mem_usage=True,
 )
 
-# ✅ PEFT: LoRA 적용
+# ✅ PEFT: LoRA 적용 (Trainer 이전, 단 1번만!)
 model = prepare_model_for_kbit_training(model)
 model.gradient_checkpointing_enable()
 
@@ -80,7 +90,7 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=8,
     num_train_epochs=3,
     learning_rate=2e-4,
-    bf16=torch.cuda.is_available() and torch.cuda.is_bf16_supported(),
+    bf16=True,
     logging_steps=10,
     save_strategy="epoch",
     save_total_limit=2,

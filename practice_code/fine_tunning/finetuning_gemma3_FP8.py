@@ -1,4 +1,3 @@
-import os
 from accelerate import Accelerator
 from transformers import (
     AutoTokenizer,
